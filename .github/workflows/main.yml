@@ -21,3 +21,9 @@ jobs:
          docker build . -f Dockerfile -t harshkhokhar/demo-image-1:latest
     - name: push the docker image
       run: docker push ${{secrets.DOCKER_USERNAME}}/demo-image-1:latest
+
+    - name: start minikube
+      uses: medyagh/setup-minikube@latest 
+      
+    - name: Deployment
+      run: kubectl -apply -f ./deployment.yml
