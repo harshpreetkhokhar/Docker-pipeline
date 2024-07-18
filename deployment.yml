@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: new-web
-        image: harshkhokhar/demo-image-1:tagname
+        image: harshkhokhar/demo-image-1:latest
         ports:
         - containerPort: 80
 
