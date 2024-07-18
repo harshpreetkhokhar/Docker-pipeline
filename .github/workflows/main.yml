@@ -27,5 +27,7 @@ jobs:
       
     - name: Deployment
       run: kubectl apply -f ./deployment.yml
+    - name: wait for pods to stabilize
+      run: sleep 60
     - name: check pods
       run: kubectl get pods 
