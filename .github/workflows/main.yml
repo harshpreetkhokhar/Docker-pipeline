@@ -9,7 +9,16 @@ jobs:
     steps:
     - name: repo checkout
       uses: actions/checkout@v2
-  
-    - name: Build image
-      run: docker build . --file Dockerfile --tag my-webpage-github:latest
-  
+      
+    - name: login to docker hub  
+      env:
+         username: ${{secrets.DOCKERHUB_USERNAME}}
+         password: ${{secrets.DOCKERHUB_PASSWORD}}
+      run: |
+         docker login -u $username -p $password 
+    - name: build the docker image
+      run: |
+         ls -la 
+         docker build . -f Dockerfile -t dhruvin30/demo-image-test:latest
+    - name: push the docker image
+      run: docker push ${{secrets.DOCKERHUB_USERNAME}}/demo-image-test:latest
