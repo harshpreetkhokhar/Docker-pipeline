@@ -11,5 +11,5 @@ jobs:
       uses: actions/checkout@v2
   
     - name: Build image
-      run: docker build -t Newimage .
+      run: docker build . --file Dockerfile --tag my-webpage-github:latest
   
