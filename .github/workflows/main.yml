@@ -18,6 +18,6 @@ jobs:
          docker login -u $username -p $password 
     - name: build the docker image
       run: |
-         docker build . -f Dockerfile -t $username/demo-image-1:latest
+         docker build . -f Dockerfile -t harshkhokhar/demo-image-1:latest
     - name: push the docker image
       run: docker push ${{secrets.DOCKER_USERNAME}}/demo-image-1:latest
