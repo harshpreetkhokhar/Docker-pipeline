@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-deployment
+  labels:
+    app: web-dep
+spec:
+  replicas: 1
+  selector:
+  template:
+    metadata:
+      labels:
+        app: web-dep
+    spec:
+      containers:
+      - name: new-web
+        image: harshkhokhar/demo-image-1:tagname
+        ports:
+        - containerPort: 80
+
